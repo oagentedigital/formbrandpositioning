@@ -3,454 +3,467 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulário • Posicionamento de Marca — Eraldo Pio Óptico</title>
+  <title>Formulário — Posicionamento de Marca | Eraldo Pio Óptico</title>
+
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1a2e;
-      --card2:#0c1628;
-      --text:#e9eefc;
-      --muted:#b9c3dd;
-      --line:rgba(255,255,255,.10);
-      --accent:#7c5cff;
-      --accent2:#22c55e;
-      --danger:#ef4444;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --shadow: 0 10px 30px rgba(17,24,39,.08);
+
+      --accent: #2563eb;     /* azul */
+      --accent2: #16a34a;    /* verde */
+      --danger: #dc2626;     /* vermelho */
+      --pill: #eef2ff;       /* azul bem claro */
+      --pillBorder: #dbeafe; /* azul claro */
+      --radius: 16px;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing: border-box; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 800px at 20% 0%, rgba(124,92,255,.20), transparent 60%),
-                  radial-gradient(900px 700px at 80% 30%, rgba(34,197,94,.16), transparent 55%),
-                  linear-gradient(180deg, var(--bg), #050a14);
-      min-height:100vh;
-      padding: 18px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar{
+      padding: 18px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, rgba(255,255,255,.6));
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
     }
 
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      display:grid;
+      padding: 18px 14px 32px;
+      display: grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 16px;
-      align-items:start;
+      align-items: start;
     }
 
     @media (max-width: 980px){
-      .wrap{grid-template-columns: 1fr}
-    }
-
-    header{
-      grid-column: 1 / -1;
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:space-between;
-      margin-bottom: 4px;
-    }
-
-    .title{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
+      .wrap{ grid-template-columns: 1fr; }
     }
 
     h1{
-      margin:0;
-      font-size: 20px;
-      letter-spacing:.2px;
-      line-height:1.2;
+      margin:0 0 6px 0;
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: .2px;
     }
-
     .sub{
-      color:var(--muted);
-      font-size: 13px;
-      line-height:1.45;
-      max-width: 880px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: 999px;
-      box-shadow: var(--shadow);
-      white-space:nowrap;
-      font-size: 12px;
+      margin:0;
       color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .meta{
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .badge{
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
     }
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow:hidden;
+      overflow: hidden;
     }
 
-    .card .hd{
+    .card-hd{
       padding: 14px 16px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.02);
+      background: #fff;
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
 
-    .card .hd strong{
-      font-size: 14px;
-      letter-spacing:.2px;
+    .card-hd strong{
+      font-size: 13px;
+      letter-spacing: .2px;
     }
 
-    .card .bd{
+    .card-bd{
       padding: 16px;
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
       gap: 14px;
     }
 
-    details{
-      border:1px solid var(--line);
+    .section{
+      border: 1px solid var(--line);
       border-radius: 14px;
-      background: rgba(0,0,0,.10);
-      overflow:hidden;
+      padding: 14px;
+      background: #fff;
     }
-    summary{
-      cursor:pointer;
-      list-style:none;
-      padding: 12px 14px;
-      font-weight: 600;
-      font-size: 13px;
+
+    .section-title{
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 10px;
     }
-    summary::-webkit-details-marker{display:none}
-    .details-content{
-      padding: 0 14px 12px 14px;
+
+    .section-title h2{
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+
+    .section-title .hint{
+      margin: 0;
       color: var(--muted);
-      font-size: 13px;
-      line-height:1.5;
+      font-size: 12px;
     }
 
     .grid{
-      display:grid;
+      display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 680px){
-      .grid{grid-template-columns: 1fr}
+    @media (max-width: 700px){
+      .grid{ grid-template-columns: 1fr; }
     }
 
     label{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
       font-size: 12px;
       color: var(--muted);
     }
 
-    input[type="text"], textarea, select{
-      width:100%;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
+    input[type="text"], textarea{
+      width: 100%;
+      border: 1px solid var(--line);
       border-radius: 12px;
       padding: 11px 12px;
-      outline:none;
       font-size: 14px;
+      color: var(--text);
+      background: #fff;
+      outline: none;
     }
-    textarea{min-height: 88px; resize: vertical}
-
-    .hint{
-      font-size: 12px;
-      color: var(--muted);
-      line-height:1.4;
-    }
+    textarea{ min-height: 86px; resize: vertical; }
 
     .chips{
-      display:flex;
-      flex-wrap:wrap;
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
+      margin-top: 8px;
     }
+
     .chip{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 10px;
-      border:1px solid var(--line);
+      border: 1px solid var(--pillBorder);
+      background: var(--pill);
       border-radius: 999px;
-      background: rgba(255,255,255,.03);
+      padding: 9px 10px;
       font-size: 13px;
-      color: var(--text);
-      user-select:none;
+      color: #1f2937;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: .12s ease;
     }
-    .chip input{accent-color: var(--accent);}
+    .chip:hover{ transform: translateY(-1px); }
+    .chip input{ accent-color: var(--accent); }
 
     .row{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .btn{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      background: #fff;
       color: var(--text);
       padding: 11px 12px;
       border-radius: 12px;
-      cursor:pointer;
+      cursor: pointer;
       font-weight: 700;
       font-size: 13px;
-      display:inline-flex;
-      align-items:center;
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      transition: .15s ease;
+      transition: .12s ease;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
+    .btn:hover{ transform: translateY(-1px); }
     .btn.primary{
-      background: linear-gradient(180deg, rgba(124,92,255,.95), rgba(124,92,255,.75));
-      border-color: rgba(124,92,255,.45);
+      background: var(--accent);
+      border-color: rgba(37,99,235,.25);
+      color: #fff;
     }
     .btn.whats{
-      background: linear-gradient(180deg, rgba(34,197,94,.95), rgba(34,197,94,.78));
-      border-color: rgba(34,197,94,.45);
+      background: var(--accent2);
+      border-color: rgba(22,163,74,.25);
+      color: #fff;
     }
     .btn.danger{
-      background: linear-gradient(180deg, rgba(239,68,68,.90), rgba(239,68,68,.70));
-      border-color: rgba(239,68,68,.35);
+      background: var(--danger);
+      border-color: rgba(220,38,38,.25);
+      color: #fff;
     }
 
     .preview{
       white-space: pre-wrap;
-      background: rgba(0,0,0,.22);
-      border: 1px dashed rgba(255,255,255,.16);
+      background: #0b1220;
+      color: #e5e7eb;
       border-radius: 14px;
       padding: 12px;
       font-size: 13px;
       line-height: 1.45;
-      color: #eaf0ff;
-      min-height: 220px;
+      min-height: 240px;
+      border: 1px solid rgba(255,255,255,.08);
     }
 
     .small{
-      font-size: 12px;
       color: var(--muted);
-      line-height:1.45;
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .toast{
       position: fixed;
       left: 50%;
-      bottom: 18px;
+      bottom: 14px;
       transform: translateX(-50%);
-      background: rgba(10, 18, 32, .95);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: var(--shadow);
+      background: rgba(17,24,39,.92);
+      color: #fff;
       padding: 10px 12px;
       border-radius: 999px;
       font-size: 13px;
-      color: var(--text);
       display:none;
-      gap:10px;
-      align-items:center;
-      z-index: 50;
+      align-items: center;
+      gap: 10px;
+      z-index: 100;
+      box-shadow: var(--shadow);
     }
-    .toast.show{display:flex;}
+    .toast.show{ display:flex; }
     .dot{
-      width:10px;height:10px;border-radius:999px;background: var(--accent2);
-      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,.18);
     }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="title">
-        <h1>📍 Formulário — Como Definir o Posicionamento de Marca</h1>
-        <div class="sub">
-          Aplicado ao <strong>Eraldo Pio Óptico – “O Alfaiate dos Óculos”</strong>. Preencha e clique em <strong>Enviar no WhatsApp</strong>.
-          Funciona no celular e no desktop, sem backend.
-        </div>
-      </div>
-      <div class="badge">📲 Envio para WhatsApp: <strong>+55 81 99451-9238</strong></div>
-    </header>
 
+<body>
+  <div class="topbar">
+    <div style="max-width:980px;margin:0 auto;">
+      <h1>📍 Formulário — Posicionamento de Marca (Eraldo Pio Óptico)</h1>
+      <p class="sub">Preencha e envie direto no WhatsApp. Visual limpo no estilo “GitHub Pages / formvideo”, adaptável para web e mobile.</p>
+      <div class="meta">
+        <span class="badge">📲 Envio: <strong>+55 81 99451-9238</strong></span>
+        <span class="badge">✅ Sem backend (HTML + CSS + JS)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
     <!-- FORM -->
     <section class="card">
-      <div class="hd">
+      <div class="card-hd">
         <strong>🧾 Preenchimento</strong>
-        <span class="hint">Campos com “*” ajudam a deixar a frase final redonda.</span>
+        <span class="small">Dica: respostas curtas + objetivas ficam perfeitas no WhatsApp.</span>
       </div>
-      <div class="bd">
 
-        <details open>
-          <summary>
-            🔎 Antes de começar (entenda o que é posicionamento)
-            <span style="opacity:.8">▾</span>
-          </summary>
-          <div class="details-content">
-            Uma declaração de posicionamento precisa ter: <strong>Proposição de valor</strong> (diferencial único), <strong>Segmentação</strong> (para quem é) e <strong>Categoria</strong> (em qual mercado você está).
-            <br><br>
-            <strong>Exemplo comparativo:</strong><br>
-            🖊 <strong>BIC</strong> → funcional e universal (para todos).<br>
-            ✒️ <strong>Montblanc</strong> → prestígio e significado (para conquistas).<br><br>
-            <strong>Aplicado ao Eraldo:</strong> “lunetier” (fabricante artesão) foca em design e ajustes personalizados — como um <strong>alfaiate de óculos</strong>, indo além de “só vender armação e lente”. :contentReference[oaicite:1]{index=1}
+      <div class="card-bd">
+
+        <div class="section">
+          <div class="section-title">
+            <h2>🔎 Antes de começar</h2>
+            <p class="hint">Posicionamento = diferencial + público + categoria.</p>
           </div>
-        </details>
 
-        <div class="grid">
-          <label>
-            👤 Seu nome (opcional)
-            <input id="nome" type="text" placeholder="Ex.: Eraldo / Atendimento / Consultor(a)"/>
-          </label>
-          <label>
-            🗓️ Data (opcional)
-            <input id="data" type="text" placeholder="Ex.: 26/02/2026"/>
-          </label>
+          <div class="grid">
+            <label>
+              👤 Respondente (opcional)
+              <input id="nome" type="text" placeholder="Ex.: Eraldo / Consultor(a) / Atendimento"/>
+            </label>
+            <label>
+              🗓️ Data (opcional)
+              <input id="data" type="text" placeholder="Ex.: 26/02/2026"/>
+            </label>
+          </div>
         </div>
 
-        <hr style="border:none;border-top:1px solid var(--line); margin: 2px 0;">
+        <div class="section">
+          <div class="section-title">
+            <h2>1️⃣ Valor e diferencial de marca</h2>
+            <p class="hint">O que você faz que uma ótica comum não faz?</p>
+          </div>
 
-        <div>
-          <div class="hint"><strong>1️⃣ QUAL É O SEU VALOR E DIFERENCIAL DE MARCA?</strong><br>O que você faz que uma ótica comum não faz?</div>
-          <div class="grid" style="margin-top:10px;">
+          <div class="grid">
             <label>
               ✅ Meu diferencial é *
-              <textarea id="diferencial" placeholder="Ex.: Alfaiataria óptica personalizada, ajuste artesanal, curadoria exclusiva, consultoria de imagem..."></textarea>
+              <textarea id="diferencial" placeholder="Ex.: Alfaiataria óptica personalizada, curadoria, ajuste artesanal..."></textarea>
             </label>
+
             <label>
               ✅ Eu sou diferente porque *
-              <textarea id="diferentePorque" placeholder="Ex.: analiso o rosto, o estilo e o objetivo do cliente; faço ajuste fino; entrego conforto + presença..."></textarea>
+              <textarea id="diferentePorque" placeholder="Ex.: analiso rosto + estilo + objetivo; faço ajuste fino; entrego conforto e presença..."></textarea>
             </label>
           </div>
         </div>
 
-        <div>
-          <div class="hint"><strong>2️⃣ QUAL É A SEGMENTAÇÃO DO SEU PRODUTO OU SERVIÇO?</strong><br>Para quem você NÃO é? (isso define para quem você é)</div>
+        <div class="section">
+          <div class="section-title">
+            <h2>2️⃣ Segmentação</h2>
+            <p class="hint">Para quem você NÃO é? Isso define para quem você é.</p>
+          </div>
 
-          <div class="hint" style="margin-top:10px;">📌 Segmentos sugeridos (marque os que se encaixam):</div>
-          <div class="chips" style="margin-top:8px;">
+          <p class="small" style="margin:0 0 6px 0;">📌 Segmentos sugeridos (marque):</p>
+          <div class="chips">
             <label class="chip"><input type="checkbox" class="seg" value="Profissionais liberais"> Profissionais liberais</label>
             <label class="chip"><input type="checkbox" class="seg" value="Empresários"> Empresários</label>
-            <label class="chip"><input type="checkbox" class="seg" value="Pessoas que valorizam imagem pessoal"> Pessoas que valorizam imagem pessoal</label>
-            <label class="chip"><input type="checkbox" class="seg" value="Clientes que buscam exclusividade"> Clientes que buscam exclusividade</label>
-            <label class="chip"><input type="checkbox" class="seg" value="Quem entende óculos como identidade"> Quem entende óculos como identidade</label>
+            <label class="chip"><input type="checkbox" class="seg" value="Pessoas que valorizam imagem pessoal"> Valorizam imagem pessoal</label>
+            <label class="chip"><input type="checkbox" class="seg" value="Clientes que buscam exclusividade"> Buscam exclusividade</label>
+            <label class="chip"><input type="checkbox" class="seg" value="Óculos como identidade"> Óculos como identidade</label>
           </div>
 
           <div class="grid" style="margin-top:12px;">
             <label>
               🎯 Meu público ideal é *
-              <textarea id="publico" placeholder="Ex.: profissionais e empresários que usam óculos como parte da identidade e querem ser percebidos com autoridade."></textarea>
+              <textarea id="publico" placeholder="Ex.: profissionais e empresários que querem ser percebidos com autoridade e autenticidade."></textarea>
             </label>
+
             <label>
               💎 Ele valoriza *
-              <textarea id="valoriza" placeholder="Ex.: exclusividade, conforto, autenticidade, presença, acabamento premium, atendimento consultivo."></textarea>
+              <textarea id="valoriza" placeholder="Ex.: exclusividade, conforto, acabamento premium, atendimento consultivo."></textarea>
             </label>
           </div>
 
           <label style="margin-top:12px;">
             🚫 Ele evita (opcional)
-            <textarea id="evita" placeholder="Ex.: óculos genéricos, atendimento rápido sem cuidado, armações sem ajuste, guerra de preço."></textarea>
+            <textarea id="evita" placeholder="Ex.: óculos genéricos, guerra de preço, atendimento sem cuidado."></textarea>
           </label>
         </div>
 
-        <div>
-          <div class="hint"><strong>3️⃣ EM QUAL CATEGORIA VOCÊ SE ENQUADRA?</strong><br>Se disser só “ótica”, entra na guerra de preço. Melhor: criar subcategoria.</div>
+        <div class="section">
+          <div class="section-title">
+            <h2>3️⃣ Categoria</h2>
+            <p class="hint">Se disser só “ótica”, entra na guerra de preço.</p>
+          </div>
 
-          <label style="margin-top:10px;">
+          <label>
             🧩 Minha categoria é *
-            <input id="categoria" type="text" placeholder="Ex.: Alfaiataria Óptica / Consultoria de Imagem Óptica / Design Óptico Personalizado"/>
+            <input id="categoria" type="text" placeholder="Ex.: Alfaiataria Óptica / Consultoria de Imagem Óptica"/>
           </label>
 
           <div class="grid" style="margin-top:12px;">
             <label>
-              🧠 Necessidade resolvida (benefício principal) *
-              <textarea id="necessidade" placeholder="Ex.: conforto, autenticidade e autoridade visual (ser percebido melhor), além de enxergar melhor."></textarea>
+              🧠 Necessidade resolvida *
+              <textarea id="necessidade" placeholder="Ex.: conforto, autenticidade e autoridade visual (ser percebido melhor)."></textarea>
             </label>
+
             <label>
-              🪡 “De forma única...” (o seu jeito) *
-              <textarea id="unico" placeholder="Ex.: de forma artesanal, sob medida, com análise facial detalhada e ajuste fino no rosto."></textarea>
+              🪡 De forma única (meu jeito) *
+              <textarea id="unico" placeholder="Ex.: artesanal, sob medida, com análise facial e ajuste fino no rosto."></textarea>
             </label>
           </div>
         </div>
 
-        <div>
-          <div class="hint"><strong>🧩 CONSTRUINDO A FRASE DE POSICIONAMENTO</strong><br>Modelo: Para aqueles que (segmentação) necessitam de (categoria), nós oferecemos (valor) que provê (necessidade) de forma única (diferencial).</div>
+        <div class="section">
+          <div class="section-title">
+            <h2>🧩 Frase de posicionamento</h2>
+            <p class="hint">Modelo: Para aqueles que… necessitam de… nós oferecemos…</p>
+          </div>
 
-          <div class="grid" style="margin-top:10px;">
+          <div class="grid">
             <label>
               ✍️ Para aqueles que... (segmentação) *
-              <textarea id="fraseSegmentacao" placeholder="Ex.: valorizam imagem e identidade e querem ser percebidos com presença e confiança."></textarea>
+              <textarea id="fraseSegmentacao" placeholder="Ex.: valorizam imagem e identidade e querem ser percebidos com presença."></textarea>
             </label>
             <label>
               ✍️ necessitam de... (categoria) *
-              <textarea id="fraseCategoria" placeholder="Ex.: alfaiataria óptica / consultoria de imagem óptica."></textarea>
+              <textarea id="fraseCategoria" placeholder="Ex.: alfaiataria óptica personalizada."></textarea>
             </label>
           </div>
 
           <div class="grid" style="margin-top:12px;">
             <label>
-              ✍️ nós oferecemos... (valor/diferencial) *
-              <textarea id="fraseValor" placeholder="Ex.: uma experiência sob medida com curadoria e ajuste artesanal de armações."></textarea>
+              ✍️ nós oferecemos... (valor) *
+              <textarea id="fraseValor" placeholder="Ex.: uma experiência sob medida com curadoria e ajuste artesanal."></textarea>
             </label>
             <label>
-              ✍️ que provê... (necessidade resolvida) *
+              ✍️ que provê... (necessidade) *
               <textarea id="fraseProve" placeholder="Ex.: conforto, autenticidade e autoridade visual."></textarea>
             </label>
           </div>
 
           <label style="margin-top:12px;">
             ✍️ de forma única... (diferencial) *
-            <textarea id="fraseUnica" placeholder="Ex.: com análise facial detalhada e ajustes finos feitos para o seu rosto e estilo."></textarea>
+            <textarea id="fraseUnica" placeholder="Ex.: com análise facial detalhada e ajustes finos para seu rosto e estilo."></textarea>
           </label>
         </div>
 
         <div class="row">
           <button class="btn primary" id="btnGerar" type="button">🧠 Gerar mensagem</button>
-          <button class="btn" id="btnCopiar" type="button">📋 Copiar mensagem</button>
+          <button class="btn" id="btnCopiar" type="button">📋 Copiar</button>
           <button class="btn danger" id="btnLimpar" type="button">🧹 Limpar</button>
         </div>
 
         <div class="row">
           <button class="btn whats" id="btnWhats" type="button">📲 Enviar no WhatsApp</button>
-          <span class="small">Abre o WhatsApp com a mensagem pronta. (No desktop, abre WhatsApp Web)</span>
+          <span class="small">Abre WhatsApp/WhatsApp Web com o texto pronto.</span>
         </div>
-
       </div>
     </section>
 
     <!-- PREVIEW -->
     <aside class="card">
-      <div class="hd">
-        <strong>👀 Prévia da mensagem</strong>
-        <span class="hint">O que aparece aqui é o que vai pro WhatsApp.</span>
+      <div class="card-hd">
+        <strong>👀 Prévia do WhatsApp</strong>
+        <span class="small">O que está aqui é o que será enviado.</span>
       </div>
-      <div class="bd">
+      <div class="card-bd">
         <div id="preview" class="preview">Clique em “🧠 Gerar mensagem” para montar o texto formatado.</div>
-        <div class="small">
-          Dica: se quiser, use emojis e frases curtas — isso deixa a leitura no WhatsApp mais leve e rápida.
-        </div>
+        <div class="small">Dica: Você pode copiar e colar em outros lugares também (CRM, Notion, etc.).</div>
       </div>
     </aside>
   </div>
 
-  <div id="toast" class="toast"><span class="dot"></span><span id="toastMsg">Copiado!</span></div>
+  <div id="toast" class="toast">
+    <span class="dot"></span>
+    <span id="toastMsg">Ok!</span>
+  </div>
 
   <script>
     const WHATS_NUMBER = "5581994519238";
-
     const $ = (id) => document.getElementById(id);
+
+    function safe(v){ return (v || "").trim(); }
 
     function getCheckedValues(selector){
       return Array.from(document.querySelectorAll(selector))
@@ -458,11 +471,16 @@
         .map(el => el.value);
     }
 
-    function safe(v){ return (v || "").trim(); }
-
     function formatList(arr){
       if(!arr || arr.length === 0) return "—";
       return arr.map(x => `• ${x}`).join("\n");
+    }
+
+    function toast(msg){
+      $("toastMsg").textContent = msg;
+      const el = $("toast");
+      el.classList.add("show");
+      setTimeout(()=> el.classList.remove("show"), 1800);
     }
 
     function buildMessage(){
@@ -487,26 +505,20 @@
       const fraseProve = safe($("fraseProve").value);
       const fraseUnica = safe($("fraseUnica").value);
 
-      // Frase final (se tiver campos preenchidos)
-      const fraseFinal = (fraseSegmentacao || fraseCategoria || fraseValor || fraseProve || fraseUnica)
-        ? `Para aqueles que ${fraseSegmentacao || "________"}\n` +
-          `necessitam de ${fraseCategoria || "________"},\n` +
-          `nós oferecemos ${fraseValor || "________"}\n` +
-          `que provê ${fraseProve || "________"}\n` +
-          `de forma única ${fraseUnica || "________"}.`
-        : "—";
+      const fraseFinal =
+`Para aqueles que ${fraseSegmentacao || "__________"}
+necessitam de ${fraseCategoria || "__________"},
+nós oferecemos ${fraseValor || "__________"}
+que provê ${fraseProve || "__________"}
+de forma única ${fraseUnica || "__________"}.`;
 
-      // Mensagem formatada para WhatsApp (perguntas + respostas)
       const header =
 `📍 *FORMULÁRIO — POSICIONAMENTO DE MARCA*
 *Eraldo Pio Óptico — O Alfaiate dos Óculos*
-
 ${nome ? `👤 *Respondente:* ${nome}\n` : ""}${data ? `🗓️ *Data:* ${data}\n` : ""}━━━━━━━━━━━━━━━━━━`;
 
       const bloco1 =
-`1️⃣ *QUAL É O SEU VALOR E DIFERENCIAL DE MARCA?*
-❓ *O que você faz que uma ótica comum não faz?*
-
+`1️⃣ *VALOR E DIFERENCIAL*
 ✅ *Meu diferencial é:*
 ${diferencial || "—"}
 
@@ -514,9 +526,7 @@ ${diferencial || "—"}
 ${diferentePorque || "—"}`;
 
       const bloco2 =
-`2️⃣ *QUAL É A SEGMENTAÇÃO DO SEU PRODUTO OU SERVIÇO?*
-❓ *Para quem você NÃO é? (isso define para quem você é)*
-
+`2️⃣ *SEGMENTAÇÃO*
 📌 *Segmentos marcados:*
 ${formatList(segMarcadas)}
 
@@ -530,11 +540,11 @@ ${valoriza || "—"}
 ${evita || "—"}`;
 
       const bloco3 =
-`3️⃣ *EM QUAL CATEGORIA VOCÊ SE ENQUADRA?*
+`3️⃣ *CATEGORIA*
 🧩 *Minha categoria é:*
 ${categoria || "—"}
 
-🧠 *Necessidade resolvida (benefício principal):*
+🧠 *Necessidade resolvida:*
 ${necessidade || "—"}
 
 🪡 *De forma única (meu jeito):*
@@ -544,65 +554,50 @@ ${unico || "—"}`;
 `🧩 *FRASE DE POSICIONAMENTO (FINAL)*
 ${fraseFinal}
 
-━━━━━━━━━━━━━━━━━━
-✅ *Observação:* “Sem posicionamento claro, vira só mais uma ótica. Com isso, vira referência.”`;
+━━━━━━━━━━━━━━━━━━`;
 
-      // Validação leve (não bloqueia, mas avisa)
+      const text = [header, bloco1, bloco2, bloco3, bloco4].join("\n\n");
+
+      // aviso leve
       const missing = [];
       if(!diferencial) missing.push("Meu diferencial");
       if(!publico) missing.push("Público ideal");
       if(!categoria) missing.push("Categoria");
-      if(missing.length){
-        return {
-          text: [header, bloco1, bloco2, bloco3, bloco4].join("\n\n"),
-          warning: `Sugestão: preencha também → ${missing.join(", ")}.`
-        }
-      }
 
-      return { text: [header, bloco1, bloco2, bloco3, bloco4].join("\n\n"), warning: "" };
+      return { text, warning: missing.length ? `Sugestão: preencher → ${missing.join(", ")}.` : "" };
     }
 
     function setPreview(text){
       $("preview").textContent = text;
     }
 
-    function toast(msg){
-      $("toastMsg").textContent = msg;
-      const el = $("toast");
-      el.classList.add("show");
-      setTimeout(()=> el.classList.remove("show"), 1800);
-    }
-
     $("btnGerar").addEventListener("click", () => {
-      const {text, warning} = buildMessage();
+      const { text, warning } = buildMessage();
       setPreview(text);
-      if(warning) toast(warning);
-      else toast("Mensagem gerada!");
+      toast(warning || "Mensagem gerada! ✅");
     });
 
     $("btnCopiar").addEventListener("click", async () => {
       const text = $("preview").textContent.trim();
-      if(!text || text.includes("Clique em “🧠 Gerar mensagem”")){
+      if(!text || text.includes("Clique em")){
         toast("Gere a mensagem primeiro 🙂");
         return;
       }
       try{
         await navigator.clipboard.writeText(text);
-        toast("Copiado! ✅");
+        toast("Copiado! 📋");
       }catch(e){
-        // fallback
         const ta = document.createElement("textarea");
         ta.value = text;
         document.body.appendChild(ta);
         ta.select();
         document.execCommand("copy");
         document.body.removeChild(ta);
-        toast("Copiado! ✅");
+        toast("Copiado! 📋");
       }
     });
 
     $("btnLimpar").addEventListener("click", () => {
-      // limpa inputs e checkboxes
       document.querySelectorAll("input[type='text']").forEach(i => i.value = "");
       document.querySelectorAll("textarea").forEach(t => t.value = "");
       document.querySelectorAll("input[type='checkbox']").forEach(c => c.checked = false);
@@ -611,26 +606,11 @@ ${fraseFinal}
     });
 
     $("btnWhats").addEventListener("click", () => {
-      const {text} = buildMessage();
+      const { text } = buildMessage();
       setPreview(text);
-
-      const encoded = encodeURIComponent(text);
-
-      // wa.me funciona bem em celular e desktop (vai pro WhatsApp Web se não tiver app)
-      const url = `https://wa.me/${WHATS_NUMBER}?text=${encoded}`;
+      const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
       window.open(url, "_blank");
       toast("Abrindo WhatsApp… 📲");
-    });
-
-    // bônus: auto-gerar quando sair de um campo (mais fluido no celular)
-    document.querySelectorAll("input, textarea").forEach(el => {
-      el.addEventListener("blur", () => {
-        const p = $("preview").textContent;
-        if(p && !p.includes("Clique em “🧠 Gerar mensagem”")) {
-          const {text} = buildMessage();
-          setPreview(text);
-        }
-      });
     });
   </script>
 </body>
